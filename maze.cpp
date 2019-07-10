@@ -2,7 +2,7 @@
 #include <vector>
 
 extern "C" const char* gen_maze(char* work, int column_size, int row_size) {
-    using namespace std;
+        using namespace std;
 	using shape_t = uint_fast8_t;
 	vector<vector<shape_t>> matrix(row_size, vector<shape_t>(column_size));
 

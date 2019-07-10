@@ -18,8 +18,25 @@ ffiを有効にしてビルドします。
 > make
 > sudo make install
 ```
+自前でビルドした場合、php.iniが作られていないかと思います。  
+php.iniのテンプレートはphpをビルドしたディレクトリ(今回はphp-7.4.0alpha3)の中に入っています。  
+```sh
+> ls | grep php.ini
+php.ini-development                                            php.ini-production 
+```
+どこにコピーするかはphp -iで確認できます。  
+```sh
+> php -i | grep php.ini
+Configuration File (php.ini) Path => /usr/local/lib
+Loaded Configuration File => /usr/local/lib/php.ini
+```
+/usr/local/libに作ればいいとわかるので、コピーします。  
+```sh
+> sudo cp php.ini-development /usr/local/lib/php.ini
+```
+コピーしたphp.iniにあるffi.enableのコメントアウトを外し、ffi.enable=trueにしたら完了です。
 
-## ビルド
+## プロジェクトのビルド
 ```sh
 > mkdir build
 > cd build

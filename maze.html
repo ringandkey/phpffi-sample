@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <canvas id="maze" width=800 height=800></canvas>
+        <script type="text/javascript">
+            fetch("/maze.php?row=19&column=25").then((r)=>{ return r.json(); }).then((m)=>{
+                const data = m.maze.split("");
+                const ctx = document.getElementById("maze").getContext("2d");
+                const drawChip = (x, y) =>{
+                    ctx.fillRect(
+                        m.ofst.x + m.chip.w*x, m.ofst.y + m.chip.h*y,
+                        m.chip.w, m.chip.h);
+                };
+                for(let y=0; y<m.row; y++) {
+                    for(let x=0;x<m.column; x++) {
+                        if( data[y*m.column+x] == 0) { drawChip(x, y); }
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

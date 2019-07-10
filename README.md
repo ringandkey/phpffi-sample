@@ -19,8 +19,6 @@ ffiを有効にしてビルドします。
 > sudo make install
 ```
 
-
-
 ## ビルド
 ```sh
 > mkdir build
@@ -28,3 +26,25 @@ ffiを有効にしてビルドします。
 > cmake ..
 > make
 ```
+
+## 実行
+
+なんらかのwebサーバを立ててももちろん構わないのですが、簡単にphpのビルトインサーバで試してみます。  
+maze.htmlやmaze.phpがドキュメントルートになるように実行しています。  
+```sh
+> php -S 0.0.0.0:8090
+```
+ポート番号は適当に指定しました。  
+windows側から見る場合、ubuntuに割り当てられたipアドレスを確認しておく必要があります。  
+```sh
+> ifconfig
+```
+eth0の項目の"inet AAA.BBB.CCC.DDD"の部分です。  
+確認したらブラウザのURL欄に  
+AAA.BBB.CCC.DDD/maze.html   
+と入力してください。  
+
+![maze](https://github.com/ringandkey/images/raw/master/maze.png)
+
+こんなのが画面に出れば成功です。  
+リロードするたびに違う迷路が生成されます。  

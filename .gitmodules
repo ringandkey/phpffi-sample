@@ -1,0 +1,3 @@
+[submodule "DungeonTemplateLibrary"]
+	path = DungeonTemplateLibrary
+	url = https://github.com/Kasugaccho/DungeonTemplateLibrary.git
